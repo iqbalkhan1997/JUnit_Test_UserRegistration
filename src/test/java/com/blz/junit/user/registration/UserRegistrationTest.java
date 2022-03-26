@@ -4,6 +4,9 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class UserRegistrationTest {
+    public static String expected;
+    public static String actual;
+
 
     UserRegistration test = new UserRegistration();
 
@@ -38,10 +41,18 @@ public class UserRegistrationTest {
     }
 
     @Test
-    public void givenEmailsListShouldMatchExPattern(){
-        String[] emailsList={"abc@yahoo.com","abc-100@yahoo.com","abc.100@yahoo.com","abc111@abc.com","abc-100@abc.net","abc.100@abc.com.au","abc@1.com","abc@gmail.com.com","abc+100@gmail.com"};
-        boolean UserEmails = test.validateEmailsList(emailsList);
-        Assert.assertEquals(true, UserEmails);
+    public void givenSadMood_ShouldReturnSad(){
+
+         actual =test.analyzeMood("I am In SAD mood"); // ="sad"
+         expected ="sad";
+        Assert.assertEquals(expected,actual);
+    }
+
+    @Test
+    public void givenAnyMood_ShouldReturnHappy(){
+        actual=test.analyzeMood1("I am in Happy mood");
+        expected ="happy";
+        Assert.assertEquals(expected,actual);
     }
 }
 

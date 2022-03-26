@@ -36,17 +36,14 @@ public class UserRegistration {
             return false;
     }
 
-    public boolean validateEmailsList(String[] emails) {
-        boolean count = true;
-        for (int i = 0; i < emails.length; i++) {
-            Pattern pattern = Pattern.compile("^[a-z]{3,}([._+-][a-z0-9]{3,})*@[a-z0-9]{2,}.[a-z]{2,3}([.+_-][a-z]{2,3})*$");
-            Matcher matcher = pattern.matcher(emails[i]);
-            if (matcher.matches())
-                count = true;
-            else
-                count = false;
-            break;
-        }
-        return count;
+    public String analyzeMood(String msg) {
+        if (msg.toLowerCase().contains("sad"))
+            return "sad";
+        return null;
+    }
+    public String analyzeMood1(String msg) {
+        if (msg.toLowerCase().contains("happy"))
+            return "happy";
+        return null;
     }
 }
