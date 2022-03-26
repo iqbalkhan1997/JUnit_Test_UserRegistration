@@ -15,7 +15,7 @@ public class UserRegistration {
     }
 
     public boolean validateEmail(String TestEmailId) {
-        String emailPattern = "^[a-z]{3,}([._+-][a-z0-9]{3,})*@[a-z0-9]{2,}.[a-z]{2,3}([.+_-][a-z]{2,3})*$";
+        String emailPattern = "^[a-zA-Z0-9_+-]+([.][a-zA-Z0-9]+)*@[0-9a-zA-Z]+[.][a-zA-Z]{2,}+([.][a-zA-Z]{2,})?$";
         return validatePattern(emailPattern,TestEmailId);
     }
     public boolean validateMobNumber(String TestNumber){
@@ -30,10 +30,7 @@ public class UserRegistration {
     public boolean validatePattern(String inbuiltPattern, String TestPattern) {
         Pattern pattern = Pattern.compile(inbuiltPattern);
         Matcher matcher = pattern.matcher(TestPattern);
-        if (matcher.matches())
-            return true;
-        else
-            return false;
+        return matcher.matches();
     }
 
     public String analyzeMood(String msg) {
